@@ -29,4 +29,44 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangePersonalInfo</display-name>
+    <servlet-name>ChangePersonalInfo</servlet-name>
+    <servlet-class>Servlet.ChangePersonalInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePersonalInfo</servlet-name>
+    <url-pattern>/ChangePersonalInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserManage</display-name>
+    <servlet-name>UserManage</servlet-name>
+    <servlet-class>Servlet.UserManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserManage</servlet-name>
+    <url-pattern>/UserManage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PosterManage</display-name>
+    <servlet-name>PosterManage</servlet-name>
+    <servlet-class>Servlet.PosterManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PosterManage</servlet-name>
+    <url-pattern>/PosterManage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BoardManage</display-name>
+    <servlet-name>BoardManage</servlet-name>
+    <servlet-class>Servlet.BoardManage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BoardManage</servlet-name>
+    <url-pattern>/BoardManage</url-pattern>
+  </servlet-mapping>
 </web-app>
