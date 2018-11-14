@@ -69,4 +69,14 @@
     <servlet-name>BoardManage</servlet-name>
     <url-pattern>/BoardManage</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Register</display-name>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>Servlet.Register</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
 </web-app>
