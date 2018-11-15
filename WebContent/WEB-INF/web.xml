@@ -79,4 +79,54 @@
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PersonalInfo</display-name>
+    <servlet-name>PersonalInfo</servlet-name>
+    <servlet-class>Servlet.PersonalInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonalInfo</servlet-name>
+    <url-pattern>/PersonalInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Search</display-name>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>Servlet.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowList</display-name>
+    <servlet-name>ShowList</servlet-name>
+    <servlet-class>Servlet.ShowList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowList</servlet-name>
+    <url-pattern>/ShowList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PosterInfo</display-name>
+    <servlet-name>PosterInfo</servlet-name>
+    <servlet-class>Servlet.PosterInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PosterInfo</servlet-name>
+    <url-pattern>/PosterInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddReply</display-name>
+    <servlet-name>AddReply</servlet-name>
+    <servlet-class>Servlet.AddReply</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddReply</servlet-name>
+    <url-pattern>/AddReply</url-pattern>
+  </servlet-mapping>
 </web-app>

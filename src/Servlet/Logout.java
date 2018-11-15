@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class Logout
+ * 登出
+ * 清除session并redirect到homepage.jsp
  */
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- 注册页面 ：传参数userid,username,userpassword到Register;
+接收传来的register参数，如果注册失败，则为'false'，显示提示信息，该ID已被注册-->
 <title>Insert title here</title>
 </head>
 <body>

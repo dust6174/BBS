@@ -8,6 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class Login
+ * 实现doPost
+ * 接收login.jsp传来的参数：identity,值为'admin'/'user'
+ * userid,userpassword/adminid,adminpassword;与数据库中对比；
+ * 如存在此用户，登录成功，在session中添加参数identity,userid,username,islock（值为'true'或'false'）,并redirect到homepage.jsp；
+ * 如不存在此用户，登录失败，在request中添加参数login,值为'false',redirect到login.jsp;
+ * 如存在此管理员，登录成功，在session中添加参数identity,adminid,adminname,并redirect到adminhomepage.jsp；
+ * 如不存在此管理员，登录失败，在request中添加参数login,值为'false',redirect到login.jsp;
+ * 如果登录成功，在session中添加参数islogin,值为'true'
  */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;

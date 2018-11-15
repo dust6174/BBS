@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class ChangePersonalInfo
+ * 接收参数:新的username,userpassword;
+ * 更新数据库中的信息，将username,userpassword,islock放入request,redirect到personalInfo页面
  */
 public class ChangePersonalInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
