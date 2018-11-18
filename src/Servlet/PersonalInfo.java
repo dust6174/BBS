@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class PersonalInfo
@@ -25,8 +26,19 @@ public class PersonalInfo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		String userid = (String) session.getAttribute("userid");
+		String username = null;
+		boolean islock = (Boolean) null;
+		
+		
+		//通过userid从数据库中获取username,islock
+		//TODO
+		
+		
+		request.setAttribute("username", username);
+		request.setAttribute("islock", islock);
+		request.getRequestDispatcher("personalinfo.jsp").forward(request, response);
 	}
 
 	/**
