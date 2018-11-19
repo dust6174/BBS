@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import DAO.UserDAO;
+import entity.User;
 
 /**
  * Servlet implementation class Login 实现doPost
@@ -19,6 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UserDAO userDAO = UserDAO.getInstance();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -45,10 +49,12 @@ public class UserLogin extends HttpServlet {
 			throws ServletException, IOException {
 		String identity = request.getParameter("identity");
 		String userid = request.getParameter("userid");
-		String userpassword = request.getParameter("userpassword");
+
 		HttpSession session = request.getSession();
 
-		boolean result = (Boolean) null;
+		User = userDAO.getByID(userid);
+		String username = User.username;
+		boolean islock = User.islock;
 		// 通过参数identity,userid,username在数据库中select islock的值
 		
 		// 不存在该用户，即没有数据被选出
@@ -62,8 +68,8 @@ public class UserLogin extends HttpServlet {
 			// 在session中添加参数identity,userid,username,islock（值为'true'或'false'）
 			session.setAttribute("identity", identity);
 			session.setAttribute("userid", userid);
-			session.setAttribute("userpassword", userpassword);
-			session.setAttribute("islock", result);
+			session.setAttribute("username", username);
+			session.setAttribute("islock", islock);
 			// 登录成功，在session中添加参数islogin,值为'true'
 			session.setAttribute("islogin", true);
 			response.sendRedirect("homepage.jsp");

@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,16 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Search
- * 接收查询参数searchwhat,执行模糊查询，返回搜索结果（主题帖）；
+ * Servlet implementation class UserManage
  */
-public class Search extends HttpServlet {
+public class UserManage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Search() {
+    public UserManage() {
         super();
         // TODO Auto-generated constructor stub
     }

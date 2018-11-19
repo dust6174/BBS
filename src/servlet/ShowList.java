@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BoardManage
+ * Servlet implementation class ShowList
+ * 将所有主题帖（posterid,userid,username,counter,postertitle,boardid,boardname）按boradid排序，放在request中
+ * include board.jsp
  */
-public class BoardManage extends HttpServlet {
+public class ShowList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardManage() {
+    public ShowList() {
         super();
         // TODO Auto-generated constructor stub
     }

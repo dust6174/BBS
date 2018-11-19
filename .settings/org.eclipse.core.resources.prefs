@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//WebContent/banner.jsp=UTF-8
 encoding//WebContent/board.jsp=UTF-8
+encoding//WebContent/footer.jsp=UTF-8
 encoding//WebContent/login.jsp=UTF-8
 encoding//WebContent/personalinfo.jsp=UTF-8
 encoding//WebContent/poster.jsp=UTF-8

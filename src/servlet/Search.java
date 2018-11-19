@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,17 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Logout
- * 登出
- * 清除session并redirect到homepage.jsp
+ * Servlet implementation class Search
+ * 接收查询参数searchwhat,执行模糊查询，返回搜索结果（主题帖）；
  */
-public class Logout extends HttpServlet {
+public class Search extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logout() {
+    public Search() {
         super();
         // TODO Auto-generated constructor stub
     }

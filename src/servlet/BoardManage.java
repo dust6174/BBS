@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PosterManage
+ * Servlet implementation class BoardManage
  */
-public class PosterManage extends HttpServlet {
+public class BoardManage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PosterManage() {
+    public BoardManage() {
         super();
         // TODO Auto-generated constructor stub
     }

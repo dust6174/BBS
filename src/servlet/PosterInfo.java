@@ -1,4 +1,4 @@
-package Servlet;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Entity.Poster;
-import Entity.Reply;
+import DAO.PosterDAO;
+import DAO.ReplyDAO;
+import entity.Poster;
+import entity.Reply;
 
 /**
  * Servlet implementation class PosterInfo
@@ -29,24 +31,25 @@ public class PosterInfo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String posterid = request.getParameter("posterid");
-		Poster poster = new Poster();
-		Reply[] replyList = null;
-		
-		//通过posterid获得整个poster对象（即select *）
-		
-		//通过posterid获得所有所有该poster的跟帖
-		
-		request.setAttribute("poster", poster);
-		request.setAttribute("replyList", replyList);
+		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		PosterDAO posterDAO = PosterDAO.getInstance();
+		ReplyDAO replyDAO = ReplyDAO.getInstance();
+		String posterid = request.getParameter("posterid");
+
+		//通过posterid获得整个poster对象（即select *）
+		//通过posterid获得所有所有该poster的跟帖
+		Poster poster = posterDAO.getByID(posterid);
+		Reply[] replyList = replyDAO.getByPosterID(posterid);	
+		request.setAttribute("poster", poster);
+		request.setAttribute("replyList", replyList);
+		response.sendRedirect("poster.jsp");
 	}
 
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Utils;
+package utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ public class DBHelper {
 
 	public String url = "jdbc:mysql://localhost:3306/BBS?serverTimezone=GMT%2B8";
 	public String username = "root";
-	public String password = "root";
+	public String password = "mysql466";
 	public static DBHelper instance = null;
 
 	// 通过静态代码块注册数据库驱动，保证注册只执行一次
