@@ -1,4 +1,4 @@
-package servlet;
+package Servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,21 +6,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.BoardDAO;
-import DAO.PosterDAO;
-import entity.Board;
-import entity.Poster;
-
 /**
- * Servlet implementation class Homepage
+ * Servlet implementation class Logout
+ * 登出
+ * 清除session并redirect到homepage.jsp
+ * 管理员redirect到login.jsp
  */
-public class Homepage extends HttpServlet {
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Homepage() {
+    public Logout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +28,7 @@ public class Homepage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
@@ -39,17 +37,17 @@ public class Homepage extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BoardDAO boardDAO = BoardDAO.getInstance();
-		PosterDAO posterDAO = PosterDAO.getInstance();
-		
-		Board[] boards = Board.getAllBoard();
-		for(Board board:boards){
-			String boardid = board.boardid;
-			Poster[] posters=posterDAO.getByBoardID(boardid);
-			request.setAttribute("board", board);
-			request.setAttribute(board.boardname, posters);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String identity = request.getParameter("identity");
+		if(identity.equals("user")){
+			request.getSession().invalidate();
+			response.sendRedirect("homepage.jsp");	
 		}
-		response.sendRedirect("homepage.jsp");
+		else if(identity.equals("admin")){
+			request.getSession().invalidate();
+			response.sendRedirect("login.jsp");	
+		}
+
 	}
 
 }

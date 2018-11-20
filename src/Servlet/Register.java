@@ -1,4 +1,4 @@
-package servlet;
+package Servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,6 +6,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DAO.UserDAO;
+import entity.User;
 
 /**
  * Servlet implementation class Register 实现doPost 接受register.jsp传来的参数：
@@ -41,31 +44,37 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String userid = request.getParameter("userid");
+		
+		UserDAO userDAO = UserDAO.getInstance();
+		
+		int userid = Integer.parseInt(request.getParameter("userid"));
 		String username = request.getParameter("username");
-		String password = request.getParameter("userpassword");
+		String userpassword = request.getParameter("userpassword");
 
 		// 判断userid是否已存在
-		String result = null;
+		User user = userDAO.getByUserID(userid);
 		// userid已存在
-		if (result == userid) {
-			boolean register = false;
-			request.setAttribute("fail", register);
-			request.getRequestDispatcher("register.jsp").forward(request, response);
+		if (user != null) {
+			String register = "UserID已存在";
+			response.sendRedirect("register.jsp?register="+register);
 		}
 		// 用户名是可用的
-		if (result != userid) {
+		else if (user == null) {
 			// 通过用户名和密码创建新的user
-			// TODO
-
+			user.setUserID(userid);
+			user.setUsernName(username);
+			user.setUserPassword(userpassword);
+			user.setIsLock(false);
+			userDAO.addUser(user);
 			//通过cookie存储用户名和密码并且重定向到login.jsp
-			Cookie cookie1 = new Cookie("userid", userid);
-			Cookie cookie2 = new Cookie("userpassword", password);
+			String id = Integer.toString(userid);
+			Cookie cookie1 = new Cookie("userid",id);
+			Cookie cookie2 = new Cookie("userpassword", userpassword);
 			cookie1.setMaxAge(24*60*60);
 			cookie2.setMaxAge(24*60*60);
 			response.addCookie(cookie1);
 			response.addCookie(cookie2);
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			response.sendRedirect("login.jsp");
 		}
 
 	}

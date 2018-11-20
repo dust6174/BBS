@@ -6,6 +6,17 @@
 <html>
 <head>
 <!-- 从session中获取参数:islogin,identity,id,name,islock(user)显示欢迎信息、登录登出按钮、论坛图标、搜索框等 -->
+      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream</title>
+	<!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+     <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+        <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet">
+     <!-- Google Fonts-->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 <body>
@@ -33,6 +44,16 @@
 		</c:if>
 		<c:if test="${(username==null)&&(adminname==null)}">
 			<p>您好，游客</p>
+		</c:if>
+	</div>
+		<div class="col-md-4 col-sm-4">
+		<c:if test="${islogin==true}">
+			<a href="Logout" class="btn btn-primary btn-lg">Log Out</a>
+		</c:if>
+		<c:if test="${(username==null)&&(adminname==null)}">
+			<a href="login.jsp" class="btn btn-primary btn-lg">Sign In</a>
+			OR
+			<a href="register.jsp" class="btn btn-primary btn-lg">Sign Up</a>
 		</c:if>
 	</div>
 </div>

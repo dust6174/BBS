@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome to SouthDynasty BBS</title>
 </head>
 <body>
+<jsp:include page="banner.jsp"></jsp:include>
 
+<jsp:include page="Homepage"></jsp:include>
+
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

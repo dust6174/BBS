@@ -20,7 +20,7 @@ public class UserDAO {
 	        return new UserDAO();  
 	    }
 
-	    public User getUserByID(int userid) {
+	    public User getByUserID(int userid) {
 	        User user =null;
 	        try {
 	            
@@ -91,10 +91,30 @@ public class UserDAO {
 				}
 		 }
 	     public void addLock(User user){
-	    	 
+	    	 try {
+					Connection c = DBHelper.getInstance().getConnection();
+
+					String sql = "update user islock = true where userid = ?";
+					PreparedStatement ps = c.prepareStatement(sql);
+					ps.setInt(1, user.getUserID());
+					ps.execute();
+					DBHelper.closeConnection(c, ps, null);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 	     }
 	     public void disLock(User user){
-	    	 
+	    	 try {
+					Connection c = DBHelper.getInstance().getConnection();
+
+					String sql = "update user islock = false where userid = ?";
+					PreparedStatement ps = c.prepareStatement(sql);
+					ps.setInt(1, user.getUserID());
+					ps.execute();
+					DBHelper.closeConnection(c, ps, null);
+				} catch (Exception e) {
+					e.printStackTrace();
+				} 
 	     }
 	     public List<User> getBySearchWhat(String searchwhat){
 	    	 List<User> users = new ArrayList<User>();

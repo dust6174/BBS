@@ -1,4 +1,4 @@
-package servlet;
+package Servlet;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

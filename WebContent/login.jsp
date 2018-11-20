@@ -49,14 +49,14 @@ body
                 <p>Please Input your ID and Password!</p>
             </div>
             <div class="panel-body">
-            	<form method="POST" action="UserLogin" >
+            	<form method="POST" action="Login?identity=user" >
 	            	<div class="form-group">
                         <label>Input your ID</label>
-                        <input type="text" class="form-control" placeholder="ID">
+                        <input type="text" class="form-control" placeholder="ID" name="userid">
 	                </div>
 	            	<div class="form-group">
                         <label>Input your Password</label>
-                        <input type="password" class="form-control" placeholder="password">
+                        <input type="password" class="form-control" placeholder="password" name="userpassword">
 	                </div>
 	              	<div class="col-md-6 col-sm-6">
 	             		<button type="submit" class="btn btn-primary btn-lg">Submit</button>	              		
