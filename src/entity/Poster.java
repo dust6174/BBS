@@ -13,7 +13,7 @@ public class Poster implements Serializable{
     public int getPosterID(){
         return posterid;
     }
-    public void sePosterID(int posterid){
+    public void setPosterID(int posterid){
         this.posterid = posterid;
     }    
 
@@ -46,13 +46,13 @@ public class Poster implements Serializable{
     public String getPosterTitle(){
         return postertitle;
     }
-    public void set(String postertitle){
+    public void setPosterTitle(String postertitle){
         this.postertitle = postertitle;
     }
     public String getPosterContent(){
         return postercontent;
     }
-    public void setPosterContent(String ){
+    public void setPosterContent(String postercontent ){
         this.postercontent = postercontent;
     }
     public String getPosterTime(){
