@@ -34,7 +34,7 @@ public class PosterDAO {
 					int counter = rs.getInt("counter");
 					int seqnum = rs.getInt("seqnum");
 		            String postertitle = rs.getString("postertitle");
-		            String postercontent = rs.getString("postcontent");
+		            String postercontent = rs.getString("postercontent");
 		            String postertime = rs.getString("postertime");
 		            poster.setPosterID(posterid);
 		            poster.setBoardID(boardid);

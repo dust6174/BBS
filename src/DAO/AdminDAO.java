@@ -21,7 +21,7 @@ public class AdminDAO {
             
             Connection conn =  DBHelper.getInstance().getConnection();
             Statement stem =conn.createStatement(); 
-            String sql = "select * from admin where adminid = "+adminid+";";
+            String sql = "select * from administrator where adminid = "+adminid+";";
             ResultSet rs= stem.executeQuery(sql);
             
             if (rs.next()) {

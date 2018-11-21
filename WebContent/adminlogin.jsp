@@ -42,14 +42,14 @@
                 <p>Please Input your ID and Password!</p>
             </div>
             <div class="panel-body">
-            	<form method="POST" action="Login?identity=user" >
+            	<form method="POST" action="Login?identity=admin" >
 	            	<div class="form-group">
                         <label>Input your ID</label>
-                        <input type="text" class="form-control" placeholder="ID" name="userid" value="${cookie.userid.value}">
+                        <input type="text" class="form-control" placeholder="ID" name="adminid" value="${cookie.adminid.value}">
 	                </div>
 	            	<div class="form-group">
                         <label>Input your Password</label>
-                        <input type="password" class="form-control" placeholder="password" name="userpassword" value="${cookie.userpassword.value}">
+                        <input type="password" class="form-control" placeholder="password" name="adminpassword" value="${cookie.adminpassword.value}">
 	                </div>
 	              	<div class="col-md-6 col-sm-6">
 	             		<button type="submit" class="btn btn-primary btn-lg">Submit</button>	              		

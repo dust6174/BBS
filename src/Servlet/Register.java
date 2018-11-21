@@ -61,6 +61,7 @@ public class Register extends HttpServlet {
 		// 用户名是可用的
 		else if (user == null) {
 			// 通过用户名和密码创建新的user
+			user = new User();
 			user.setUserID(userid);
 			user.setUsernName(username);
 			user.setUserPassword(userpassword);

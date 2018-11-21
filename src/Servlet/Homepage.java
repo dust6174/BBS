@@ -41,15 +41,7 @@ public class Homepage extends HttpServlet {
 		// TODO Auto-generated method stub
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		PosterDAO posterDAO = PosterDAO.getInstance();
-		
-		Board[] boards = Board.getAllBoard();
-		for(Board board:boards){
-			String boardid = board.boardid;
-			Poster[] posters=posterDAO.getByBoardID(boardid);
-			request.setAttribute("board", board);
-			request.setAttribute(board.boardname, posters);
-		}
-		response.sendRedirect("homepage.jsp");
+
 	}
 
 }

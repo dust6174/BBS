@@ -26,46 +26,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ChangePersonalInfo</display-name>
-    <servlet-name>ChangePersonalInfo</servlet-name>
-    <servlet-class>Servlet.ChangePersonalInfo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ChangePersonalInfo</servlet-name>
-    <url-pattern>/ChangePersonalInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>UserManage</display-name>
-    <servlet-name>UserManage</servlet-name>
-    <servlet-class>Servlet.UserManage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserManage</servlet-name>
-    <url-pattern>/UserManage</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>PosterManage</display-name>
-    <servlet-name>PosterManage</servlet-name>
-    <servlet-class>Servlet.PosterManage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>PosterManage</servlet-name>
-    <url-pattern>/PosterManage</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>BoardManage</display-name>
-    <servlet-name>BoardManage</servlet-name>
-    <servlet-class>Servlet.BoardManage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>BoardManage</servlet-name>
-    <url-pattern>/BoardManage</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Register</display-name>
     <servlet-name>Register</servlet-name>
     <servlet-class>Servlet.Register</servlet-class>
@@ -73,86 +33,6 @@
   <servlet-mapping>
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>PersonalInfo</display-name>
-    <servlet-name>PersonalInfo</servlet-name>
-    <servlet-class>Servlet.PersonalInfo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>PersonalInfo</servlet-name>
-    <url-pattern>/PersonalInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Search</display-name>
-    <servlet-name>Search</servlet-name>
-    <servlet-class>Servlet.Search</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Search</servlet-name>
-    <url-pattern>/Search</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ShowList</display-name>
-    <servlet-name>ShowList</servlet-name>
-    <servlet-class>Servlet.ShowList</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ShowList</servlet-name>
-    <url-pattern>/ShowList</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>PosterInfo</display-name>
-    <servlet-name>PosterInfo</servlet-name>
-    <servlet-class>Servlet.PosterInfo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>PosterInfo</servlet-name>
-    <url-pattern>/PosterInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AddReply</display-name>
-    <servlet-name>AddReply</servlet-name>
-    <servlet-class>Servlet.AddReply</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddReply</servlet-name>
-    <url-pattern>/AddReply</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>UserLogin</display-name>
-    <servlet-name>UserLogin</servlet-name>
-    <servlet-class>Servlet.UserLogin</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserLogin</servlet-name>
-    <url-pattern>/UserLogin</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>EditMyPoster</display-name>
-    <servlet-name>EditMyPoster</servlet-name>
-    <servlet-class>Servlet.EditMyPoster</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EditMyPoster</servlet-name>
-    <url-pattern>/EditMyPoster</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AddPoster</display-name>
-    <servlet-name>AddPoster</servlet-name>
-    <servlet-class>Servlet.AddPoster</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddPoster</servlet-name>
-    <url-pattern>/AddPoster</url-pattern>
   </servlet-mapping>
   <jsp-config>
     <taglib>
@@ -190,12 +70,12 @@
   </jsp-config>
   <servlet>
     <description></description>
-    <display-name>Homepage</display-name>
-    <servlet-name>Homepage</servlet-name>
-    <servlet-class>Servlet.Homepage</servlet-class>
+    <display-name>ShowAll</display-name>
+    <servlet-name>ShowAll</servlet-name>
+    <servlet-class>Servlet.ShowAll</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Homepage</servlet-name>
-    <url-pattern>/Homepage</url-pattern>
+    <servlet-name>ShowAll</servlet-name>
+    <url-pattern>/ShowAll</url-pattern>
   </servlet-mapping>
 </web-app>
