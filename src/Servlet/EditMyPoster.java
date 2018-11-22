@@ -6,41 +6,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.PosterDAO;
+import entity.Poster;
+
 /**
- * 接收由poster.jsp传来的posterid
- * 发起主题的人可以对自己的主题帖子进行编辑
- * 编辑完poster之后就可以redirect到poster.jsp
+ * 鎺ユ敹鐢眕oster.jsp浼犳潵鐨刾osterid
+ * 鍙戣捣涓婚鐨勪汉鍙互瀵硅嚜宸辩殑涓婚甯栧瓙杩涜缂栬緫
+ * 缂栬緫瀹宲oster涔嬪悗灏卞彲浠edirect鍒皃oster.jsp
  */
 public class EditMyPoster extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EditMyPoster() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String posterid = request.getParameter("posterid");
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//通过posterid修改数据库中postercontent的值
+		int posterid = Integer.parseInt(request.getParameter("posterid"));
+		String postertitle = request.getParameter("postertitle");
+		String postercontent = request.getParameter("postercontent");
+		PosterDAO pd = PosterDAO.getInstance();
+		Poster p = pd.getByPosterID(posterid);
+		//閫氳繃posterid淇敼鏁版嵁搴撲腑postercontent鐨勫��
+		Poster poster = new Poster();
+		poster.setBoardID(p.getBoardID());
+		poster.setPosterContent(postercontent);
+		poster.setPosterID(posterid);
+		poster.setPosterTitle(postertitle);
+		poster.setSeqNum(p.getSeqNum());
+		pd.updatePoster(poster);
 		
-		
-		
-		response.sendRedirect("poster.jsp");
+		response.sendRedirect("PosterInfo?id="+posterid);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }

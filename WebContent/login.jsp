@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +31,7 @@
 </script>
 
 </head>
-<jsp:include page="banner.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 <body>
 <div class="row" style="background-image:url('images/background.jpg')">
 	<div class="col-md-3 col-sm-3">
@@ -51,13 +52,42 @@
                         <label>Input your Password</label>
                         <input type="password" class="form-control" placeholder="password" name="userpassword" value="${cookie.userpassword.value}">
 	                </div>
-	              	<div class="col-md-6 col-sm-6">
-	             		<button type="submit" class="btn btn-primary btn-lg">Submit</button>	              		
-	              	</div>
-	              	<div class="col-md-6 col-sm-6">
-	              		<button type="reset" class="btn btn-primary btn-lg">Reset</button>
+					<div class="row">
+		              	<div class="col-md-6 col-sm-6">
+		             		<button type="submit" class="btn btn-primary btn-lg">Submit</button>	              		
+		              	</div>
+		              	<div class="col-md-6 col-sm-6">
+		              		<button type="reset" class="btn btn-primary btn-lg">Reset</button>
+		              	</div>
 	              	</div> 
             	</form>
+                <c:if test="${param.login!=null}">
+                    <c:if test="${param.login eq '1'}">
+                        <div class="alert alert-danger">
+                                <strong>警告!</strong> 禁止重复登录！
+                        </div>
+                    </c:if>
+                    <c:if test="${param.login eq '2'}">
+                        <div class="alert alert-danger">
+                                <strong>警告!</strong> 不存在此用户！
+                        </div>
+                    </c:if>
+                    <c:if test="${param.login eq '3' }">
+                        <div class="alert alert-danger">
+                                <strong>警告！</strong>密码错误！
+                        </div>
+                    </c:if>
+                </c:if>
+                <c:if test="${param.please eq '1' }">
+                        <div class="alert alert-danger">
+                                <strong>警告！</strong>请登录，登陆后才能跟帖！
+                        </div>
+                </c:if>
+<%--                 <c:if test="${param.login==null}">
+                	<div class="alert alert-danger">
+                                <strong>警告!</strong> login为空
+                        </div>
+                </c:if> --%>
             </div>
         </div>
     </div>

@@ -8,51 +8,40 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import DAO.ReplyDAO;
+import entity.Reply;
 
 /**
- * Servlet implementation class AddReply 接收参数，posterid,userid,replycontent
- * 跟帖，在Reply中添加新的跟帖 redirct到poster.jsp；
+ * Servlet implementation class AddReply 鎺ユ敹鍙傛暟锛宲osterid,userid,replycontent
+ * 璺熷笘锛屽湪Reply涓坊鍔犳柊鐨勮窡甯� redirct鍒皃oster.jsp锛�
  */
 public class AddReply extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public AddReply() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String posterid = request.getParameter("posterid");
-		String userid = request.getParameter("userid");
+		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		int posterid = Integer.parseInt(request.getParameter("posterid"));
+		int userid = (int) session.getAttribute("userid");
 		String replycontent = request.getParameter("replycontent");
 
-		// 得到跟帖时的时间
+		// 寰楀埌璺熷笘鏃剁殑鏃堕棿
 		Date date = new Date();
 		SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String replydatetime = s.format(date);
 
-		// 通过posterid，userid，replycontent，replydatetime来创建新reply
-		//TODO
+		// 閫氳繃posterid锛寀serid锛宺eplycontent锛宺eplydatetime鏉ュ垱寤烘柊reply
+		Reply reply = new Reply();
+		reply.setPosterID(posterid);
+		reply.setUserID(userid);
+		reply.setReplyContent(replycontent);
+		reply.setReplyTime(replydatetime);
+		ReplyDAO rd = ReplyDAO.getInstance();
+		rd.addReply(reply);
 		
-		response.sendRedirect("poster.jsp");
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.sendRedirect("PosterInfo?id="+posterid);
 	}
 
 }

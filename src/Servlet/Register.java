@@ -55,7 +55,7 @@ public class Register extends HttpServlet {
 		User user = userDAO.getByUserID(userid);
 		// userid已存在
 		if (user != null) {
-			String register = "UserID已存在";
+			String register = "1";
 			response.sendRedirect("register.jsp?register="+register);
 		}
 		// 用户名是可用的

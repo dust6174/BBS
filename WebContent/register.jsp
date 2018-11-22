@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +31,7 @@
 </script>
 
 </head>
-<jsp:include page="banner.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 <body>
 <div class="row" style="background-image:url('images/background.jpg')">
 	<div class="col-md-3 col-sm-3">
@@ -55,12 +56,21 @@
                         <label>Input your Password</label>
                         <input type="password" class="form-control" placeholder="password" name="userpassword">
 	                </div>
-	              	<div class="col-md-6 col-sm-6">
-	             		<button type="submit" class="btn btn-primary btn-lg">Submit</button>	              		
-	              	</div>
-	              	<div class="col-md-6 col-sm-6">
-	              		<button type="reset" class="btn btn-primary btn-lg">Reset</button>
+					<div class="row">
+		              	<div class="col-md-6 col-sm-6">
+		             		<button type="submit" class="btn btn-primary btn-lg">Submit</button>	              		
+		              	</div>
+		              	<div class="col-md-6 col-sm-6">
+		              		<button type="reset" class="btn btn-primary btn-lg">Reset</button>
+		              	</div>
 	              	</div> 
+	              	<c:if test="${param.register!=null}">
+                    	<c:if test="${param.register eq '1'}">
+                        	<div class="alert alert-danger">
+                                <strong>警告!</strong> 此用户已存在！
+                        	</div>
+                    	</c:if>
+                	</c:if>
             	</form>
             </div>
         </div>
@@ -68,6 +78,7 @@
     <div class="col-md-3 col-sm-3">
     </div>
 </div>
+
 </body>
 <jsp:include page="footer.jsp"></jsp:include>
 </html>

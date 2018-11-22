@@ -88,7 +88,7 @@
 	                                            	
 	                                            	</div>
 	                                            	<div class="col-md-4 col-sm-4">
-	                                            		<a href="AddUser" class="btn btn-success">添加新用户</a>
+	                                            		<a href="adduser.jsp" class="btn btn-success">添加新用户</a>
 	                                            	</div>
 	                                            </div>
                                             </div>

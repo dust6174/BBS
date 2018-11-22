@@ -12,9 +12,9 @@ import java.util.List;
 import entity.User;
 import utils.DBHelper;
 
-//实现getById；
-//不存在返回null;
-//存在返回user(userid,username,userpasssword,islock);
+//ʵ��getById��
+//�����ڷ���null;
+//���ڷ���user(userid,username,userpasssword,islock);
 public class UserDAO {
 	 public static UserDAO getInstance() {
 	        return new UserDAO();  
@@ -45,6 +45,24 @@ public class UserDAO {
 	        }
 	        return user;
 	    }
+	    public String getByUserName(int userid) {
+	    	String name = "";
+	        try {
+	            
+	            Connection conn =  DBHelper.getInstance().getConnection();
+	            Statement stem =conn.createStatement(); 
+	            String sql = "select * from user where userid = "+userid+";";
+	            ResultSet rs= stem.executeQuery(sql);
+	            
+	            if (rs.next()) {
+	            	name  = rs.getString("username");
+	            }
+	                DBHelper.closeConnection(conn, stem, rs);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return name;
+	    }
 	    public List<User> getAll(){
 	    	List<User> users = new ArrayList<User>();
 			User user = null;
@@ -54,7 +72,7 @@ public class UserDAO {
 				Statement stem =conn.createStatement();	
 
 				String sql = "select * from user;";
-				//按板块、置顶、时间排序
+				//����顢�ö���ʱ������
 				ResultSet rs = stem.executeQuery(sql);
 				while (rs.next()) {
 					user = new User();
@@ -94,7 +112,7 @@ public class UserDAO {
 	    	 try {
 					Connection c = DBHelper.getInstance().getConnection();
 
-					String sql = "update user islock = true where userid = ?";
+					String sql = "update user set islock = true where userid = ?;";
 					PreparedStatement ps = c.prepareStatement(sql);
 					ps.setInt(1, user.getUserID());
 					ps.execute();
@@ -107,7 +125,7 @@ public class UserDAO {
 	    	 try {
 					Connection c = DBHelper.getInstance().getConnection();
 
-					String sql = "update user islock = false where userid = ?";
+					String sql = "update user set islock = false where userid = ?;";
 					PreparedStatement ps = c.prepareStatement(sql);
 					ps.setInt(1, user.getUserID());
 					ps.execute();
@@ -128,7 +146,7 @@ public class UserDAO {
 					String sql = "select * from user "
 							+ "where (userid like "+ searchwhat
 							+ " or username like"+searchwhat+");";
-					//按板块、时间排序
+					//����顢ʱ������
 					ResultSet rs = stem.executeQuery(sql);
 					while (rs.next()) {
 						user = new User();

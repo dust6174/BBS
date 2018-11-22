@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>BBS</display-name>
   <welcome-file-list>
-    <welcome-file>homepage.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -67,6 +67,10 @@
       <taglib-uri>http://java.sun.com/jstl/x-rt</taglib-uri>
       <taglib-location>/WEB-INF/x-rt.tld</taglib-location>
     </taglib>
+    <taglib>
+      <taglib-uri>SimpleTag</taglib-uri>
+      <taglib-location>/WEB-INF/lib/simple.tld</taglib-location>
+    </taglib>
   </jsp-config>
   <servlet>
     <description></description>
@@ -77,5 +81,163 @@
   <servlet-mapping>
     <servlet-name>ShowAll</servlet-name>
     <url-pattern>/ShowAll</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditPoster</display-name>
+    <servlet-name>EditPoster</servlet-name>
+    <servlet-class>Servlet.EditPoster</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPoster</servlet-name>
+    <url-pattern>/EditPoster</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangePosterInfo</display-name>
+    <servlet-name>ChangePosterInfo</servlet-name>
+    <servlet-class>Servlet.ChangePosterInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePosterInfo</servlet-name>
+    <url-pattern>/ChangePosterInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Board</display-name>
+    <servlet-name>Board</servlet-name>
+    <servlet-class>Servlet.Board</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Board</servlet-name>
+    <url-pattern>/Board</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditMyInfo</servlet-name>
+    <servlet-class>Servlet.EditMyInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMyInfo</servlet-name>
+    <url-pattern>/EditMyInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PersonalInfo</display-name>
+    <servlet-name>PersonalInfo</servlet-name>
+    <servlet-class>Servlet.PersonalInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PersonalInfo</servlet-name>
+    <url-pattern>/PersonalInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Search</display-name>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>Servlet.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PosterInfo</display-name>
+    <servlet-name>PosterInfo</servlet-name>
+    <servlet-class>Servlet.PosterInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PosterInfo</servlet-name>
+    <url-pattern>/PosterInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddReply</display-name>
+    <servlet-name>AddReply</servlet-name>
+    <servlet-class>Servlet.AddReply</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddReply</servlet-name>
+    <url-pattern>/AddReply</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditMyPoster</display-name>
+    <servlet-name>EditMyPoster</servlet-name>
+    <servlet-class>Servlet.EditMyPoster</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditMyPoster</servlet-name>
+    <url-pattern>/EditMyPoster</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddPoster</display-name>
+    <servlet-name>AddPoster</servlet-name>
+    <servlet-class>Servlet.AddPoster</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPoster</servlet-name>
+    <url-pattern>/AddPoster</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SetTop</display-name>
+    <servlet-name>SetTop</servlet-name>
+    <servlet-class>Servlet.SetTop</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SetTop</servlet-name>
+    <url-pattern>/SetTop</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeletePoster</display-name>
+    <servlet-name>DeletePoster</servlet-name>
+    <servlet-class>Servlet.DeletePoster</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePoster</servlet-name>
+    <url-pattern>/DeletePoster</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddLock</display-name>
+    <servlet-name>AddLock</servlet-name>
+    <servlet-class>Servlet.AddLock</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddLock</servlet-name>
+    <url-pattern>/AddLock</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DisLock</display-name>
+    <servlet-name>DisLock</servlet-name>
+    <servlet-class>Servlet.DisLock</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisLock</servlet-name>
+    <url-pattern>/DisLock</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteUser</display-name>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>Servlet.DeleteUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/DeleteUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddUser</display-name>
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>Servlet.AddUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/AddUser</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -50,9 +50,11 @@ public class Login extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//防止同时登录管理员和用户
+		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("islogin") != null){
-			response.sendRedirect("login.jsp?login=请勿重复登录");
+			String login = "1";
+			response.sendRedirect("login.jsp?login="+login);
 		}
 		
 		String identity = request.getParameter("identity");
@@ -64,7 +66,7 @@ public class Login extends HttpServlet {
 			
 			// 不存在该用户，即没有数据被选出
 			if (user == null) {
-				String login = "不存在此用户";
+				String login = "2";
 				//request.setAttribute("login", login);
 				//request.getRequestDispatcher("login.jsp").forward(request, response);
 				response.sendRedirect("login.jsp?login="+login);
@@ -95,7 +97,7 @@ public class Login extends HttpServlet {
 					response.sendRedirect("homepage.jsp");
 				}
 				else if (!user.getUserPassword().equals(userpassword)) {
-					String login = "密码错误";
+					String login = "3";
 					//request.setAttribute("login", login);
 					//request.getRequestDispatcher("login.jsp").forward(request, response);
 					response.sendRedirect("login.jsp?login="+login);					
@@ -111,10 +113,10 @@ public class Login extends HttpServlet {
 
 			// 不存在该管理员，即没有数据被选出
 			if (admin == null) {
-				String login = "不存在此管理员";
+				String login = "4";
 				//request.setAttribute("login", login);
 				//request.getRequestDispatcher("login.jsp").forward(request, response);
-				response.sendRedirect("login.jsp?login="+login);
+				response.sendRedirect("adminlogin.jsp?login="+login);
 			}
 			// 存在该管理员
 			// 通过参数identity,adminid,adminrname在数据库中的值
@@ -139,10 +141,10 @@ public class Login extends HttpServlet {
 					response.sendRedirect("adminhomepage.jsp");
 				}
 				else if(!admin.getAdminPassword().equals(adminpassword)){
-					String login = "密码错误";
+					String login = "5";
 					//request.setAttribute("login", login);
 					//request.getRequestDispatcher("login.jsp").forward(request, response);
-					response.sendRedirect("login.jsp?login="+login);
+					response.sendRedirect("adminlogin.jsp?login="+login);
 				}
 			}
 			}	

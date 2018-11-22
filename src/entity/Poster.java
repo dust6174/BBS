@@ -1,7 +1,17 @@
 package entity;
 import java.io.Serializable;
 public class Poster implements Serializable{
-     private int posterid;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	 @Override
+		public String toString() {
+			return "Poster [posterid=" + posterid + ", boardid=" + boardid + ", userid=" + userid + ", counter=" + counter
+					+ ", postertitle=" + postertitle + ", postercontent=" + postercontent + ", seqnum=" + seqnum
+					+ ", postertime=" + postertime + "]";
+		}
+	private int posterid;
      private int boardid;
      private int userid;
      private int counter;

@@ -43,7 +43,7 @@ public class Logout extends HttpServlet {
 		String identity = (String) session.getAttribute("identity");
 		if(identity.equals("user")){
 			session.invalidate();
-			response.sendRedirect("homepage.jsp");	
+			response.sendRedirect("index.jsp");	
 		}
 		else if(identity.equals("admin")){
 			session.invalidate();

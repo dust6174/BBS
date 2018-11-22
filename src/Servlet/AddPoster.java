@@ -10,51 +10,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.PosterDAO;
+import entity.Poster;
+
 /**
- * 接收参数，boardid,userid,postertitle,postercontent
- * 发帖，在Poster中添加新的发帖 redirct到board.jsp；
+ * 鎺ユ敹鍙傛暟锛宐oardid,userid,postertitle,postercontent
+ * 鍙戝笘锛屽湪Poster涓坊鍔犳柊鐨勫彂甯� redirct鍒癰oard.jsp锛�
  */
 public class AddPoster extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public AddPoster() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		String userid = (String) session.getAttribute("userid");
+		int boardid = Integer.parseInt(request.getParameter("boardid"));
+		int userid = (int) session.getAttribute("userid");
 		String postertitle = request.getParameter("postertitle");
 		String postercontent = request.getParameter("postercontent");
 
-		// 得到发帖时的时间
+		// 寰楀埌鍙戝笘鏃剁殑鏃堕棿
 		Date date = new Date();
 		SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String posterdatetime = s.format(date);
 		
-		//根据boardid,userid,postertitle,postercontent，posterdatetime来发帖（即创建一个新的poster对象）
-		//TODO
+		//鏍规嵁boardid,userid,postertitle,postercontent锛宲osterdatetime鏉ュ彂甯栵紙鍗冲垱寤轰竴涓柊鐨刾oster瀵硅薄锛�
+		Poster poster = new Poster();
+		poster.setBoardID(boardid);
+		poster.setUserID(userid);
+		poster.setPosterTitle(postertitle);
+		poster.setPosterContent(postercontent);
+		poster.setPosterTime(posterdatetime);
+		PosterDAO pd = PosterDAO.getInstance();
+		pd.addPoster(poster);
 		
-		response.sendRedirect("board.jsp");
+		response.sendRedirect("homepage.jsp?keys="+boardid);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }
