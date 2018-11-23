@@ -54,9 +54,9 @@
 		<strong>警告：</strong>用户已存在，不可添加！
 	</div>
 </c:if>
-
+<c:if test="${(islogin == true) and (identity eq 'admin')}">
 <jsp:include page="ShowAll"></jsp:include>
-
+</c:if>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
