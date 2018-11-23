@@ -18,7 +18,7 @@
 <body>
 <div class="col-md-12" style="text-align: center">
 <p>联系我们：dust6174@gmail.com</p>
-<p>项目地址：https://github.com/dust6174/SouthDynastyBBS</p>
+<p>项目地址：https://github.com/dust6174/BBS</p>
 <p>Copyright © 2018. All rights reserved.</p>
 </div>
 </body>

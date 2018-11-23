@@ -39,13 +39,13 @@ body{
 				<form id="comment-form" name="comment-form" action="EditMyPoster"
 					method="POST">
 					<div class="comment">
-					<input type="hidden" name="posterid" value="${param.id }">
-						<input name="postertitle" id="" class="form-control" size="22" value="${param.title}"
+					<input type="hidden" name="posterid" value="${poster.posterID}">
+						<input name="postertitle" id="" class="form-control" size="22" value="${poster.posterTitle}"
 								maxlength="15" type="text">
 								<br>
 						<div class="comment-box">
 							<textarea name="postercontent" 
-								id="comment-textarea" cols="100%" rows="3" tabindex="3" >${param.content}</textarea>
+								id="comment-textarea" cols="100%" rows="3" tabindex="3" >${poster.posterContent}</textarea>
 							<div class="comment-ctrl">
 								<div class="comment-prompt" style="display: none;">
 									<i class="fa fa-spin fa-circle-o-notch"></i> <span

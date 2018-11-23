@@ -187,7 +187,7 @@ public class UserDAO {
 	    	 try {
 					Connection c = DBHelper.getInstance().getConnection();
 					Statement s = c.createStatement();
-					String sql = "delete from poster where userid = " + userid+";";
+					String sql = "delete from user where userid = " + userid+";";
 					s.execute(sql);
 					DBHelper.closeConnection(c, s, null);
 

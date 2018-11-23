@@ -234,9 +234,9 @@ public class PosterDAO {
 
 			searchwhat = "%" + searchwhat + "%";
 			String sql = "select * from poster " + "inner join board on poster.boardid = board.boardid "
-					+ "inner join user on poster.userid = user.userid " + "where (postertitle like " + searchwhat
-					+ " or username like" + searchwhat + " or boardname like" + searchwhat + ")"
-					+ " order by boardid,seqnum,postertime;";
+					+ "inner join user on poster.userid = user.userid " + "where postertitle like '" + searchwhat
+					+ "' or username like '" + searchwhat + "' or boardtitle like '" + searchwhat 
+					+ "'  order by poster.boardid,seqnum,postertime;";
 			// 鎸夋澘鍧椼�佹椂闂存帓搴�
 			ResultSet rs = stem.executeQuery(sql);
 			while (rs.next()) {

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="SimpleTag" prefix="stag"%>
 <%@ page import="entity.*"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-CN">
 <head>
@@ -31,6 +32,11 @@ body{
 </head>
 <body class="user-select single">
 	<jsp:include page="banner.jsp"></jsp:include>
+	<c:if test="${param.islock eq '1'}">
+        <div class="alert alert-danger">
+                <strong>警告!</strong> 您已被锁定，不可发帖，请联系管理员解锁！
+        </div>
+    </c:if>
 	<section class="container">
 	<div class="content-wrap">
 		<div class="content">

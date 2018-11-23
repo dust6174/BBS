@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAO.PosterDAO;
+import DAO.UserDAO;
 import entity.Poster;
+import entity.User;
 
 /**
  * 鎺ユ敹鍙傛暟锛宐oardid,userid,postertitle,postercontent
@@ -27,23 +29,31 @@ public class AddPoster extends HttpServlet {
 		int userid = (int) session.getAttribute("userid");
 		String postertitle = request.getParameter("postertitle");
 		String postercontent = request.getParameter("postercontent");
+		
+		User user = UserDAO.getInstance().getByUserID(userid);
+		if(user.getIsLock() == true){
+			response.sendRedirect("addPoster.jsp?islock=1");
+		}
 
 		// 寰楀埌鍙戝笘鏃剁殑鏃堕棿
-		Date date = new Date();
-		SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String posterdatetime = s.format(date);
+		else {
+			Date date = new Date();
+			SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String posterdatetime = s.format(date);
+			
+			//鏍规嵁boardid,userid,postertitle,postercontent锛宲osterdatetime鏉ュ彂甯栵紙鍗冲垱寤轰竴涓柊鐨刾oster瀵硅薄锛�
+			Poster poster = new Poster();
+			poster.setBoardID(boardid);
+			poster.setUserID(userid);
+			poster.setPosterTitle(postertitle);
+			poster.setPosterContent(postercontent);
+			poster.setPosterTime(posterdatetime);
+			PosterDAO pd = PosterDAO.getInstance();
+			pd.addPoster(poster);
+			
+			response.sendRedirect("homepage.jsp?keys="+boardid);
+		}
 		
-		//鏍规嵁boardid,userid,postertitle,postercontent锛宲osterdatetime鏉ュ彂甯栵紙鍗冲垱寤轰竴涓柊鐨刾oster瀵硅薄锛�
-		Poster poster = new Poster();
-		poster.setBoardID(boardid);
-		poster.setUserID(userid);
-		poster.setPosterTitle(postertitle);
-		poster.setPosterContent(postercontent);
-		poster.setPosterTime(posterdatetime);
-		PosterDAO pd = PosterDAO.getInstance();
-		pd.addPoster(poster);
-		
-		response.sendRedirect("homepage.jsp?keys="+boardid);
 	}
 
 	

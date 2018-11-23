@@ -240,4 +240,14 @@
     <servlet-name>AddUser</servlet-name>
     <url-pattern>/AddUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditPosterSYH</display-name>
+    <servlet-name>EditPosterSYH</servlet-name>
+    <servlet-class>Servlet.EditPosterSYH</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPosterSYH</servlet-name>
+    <url-pattern>/EditPosterSYH</url-pattern>
+  </servlet-mapping>
 </web-app>

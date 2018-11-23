@@ -68,7 +68,7 @@
 			
 		</div>
 		<div class="collapse navbar-collapse" id="header-navbar">
-					<form class="navbar-form" action="/Search" method="post">
+					<form class="navbar-form" action="Search" method="post">
 					  <div class="input-group">
 							<input type="text" name="keyword" class="form-control" size="35" placeholder="请输入关键字" maxlength="15" autocomplete="off">
 							<span class="input-group-btn">

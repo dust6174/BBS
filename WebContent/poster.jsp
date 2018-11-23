@@ -54,7 +54,7 @@ body{
 					class="item article-meta-comment" data-toggle="tooltip"
 					data-placement="bottom" title="" data-original-title="评论量"><i
 					class="glyphicon glyphicon-comment"></i> ${replyList.getReplyList().size() }</span>
-					<a href="editPosterSYH.jsp?title=${poster.getPosterTitle() }&content=${poster.getPosterContent() }&id=${poster.getPosterID() }" title="修改帖子">修改帖子</a>
+					<a href="EditPosterSYH?id=${poster.getPosterID() }" title="修改帖子">修改帖子</a>
 			</div>
 			</header>
 			<article class="article-content">
@@ -142,6 +142,7 @@ body{
 		</div>
 	</div>
 	</section>
+	<jsp:include page="footer.jsp"></jsp:include>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.ias.js"></script>
 	<script src="js/scripts.js"></script>

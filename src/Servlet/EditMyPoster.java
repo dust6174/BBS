@@ -18,6 +18,8 @@ public class EditMyPoster extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		int posterid = Integer.parseInt(request.getParameter("posterid"));
 		String postertitle = request.getParameter("postertitle");
 		String postercontent = request.getParameter("postercontent");
